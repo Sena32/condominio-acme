@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 import br.com.acme.multas.Multa;
 import br.com.acme.responsavel.Responsavel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -31,6 +32,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
 @EqualsAndHashCode
 @Table(name = "tb_responsavel")
 public class UnidadeEntity implements Serializable {

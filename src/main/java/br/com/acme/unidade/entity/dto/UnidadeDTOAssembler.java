@@ -1,5 +1,13 @@
 package br.com.acme.unidade.entity.dto;
 
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.stereotype.Component;
+
+import br.com.acme.unidade.UnidadeResource;
+import br.com.acme.unidade.entity.UnidadeEntity;
+
 @Component
 public class UnidadeDTOAssembler 
     extends RepresentationModelAssemblerSupport<UnidadeEntity, UnidadeDTO> {
@@ -15,14 +23,15 @@ public class UnidadeDTOAssembler
          
     	unidadeDto.add(linkTo(
                 methodOn(UnidadeResource.class)
-                .getActorById(entity.getId()))
+                .getUnidadeById(entity.getId()))
                 .withSelfRel());
+
          
     	unidadeDto.setId(entity.getId());
-    	unidadeDto.setTitle(entity.getTitle());
-    	unidadeDto.setDescription(entity.getDescription());
-    	unidadeDto.setReleaseDate(entity.getReleaseDate());
-    	unidadeDto.setActors(toActorModel(entity.getActors()));
+    	unidadeDto.setNumeroUnidade(entity.getNumeroUnidade());
+    	unidadeDto.setBlocoUnidade(entity.getBlocoUnidade());
+    	//unidadeDto.setReleaseDate(entity.getReleaseDate());
+    	//unidadeDto.setActors(toActorModel(entity.getActors()));
         return unidadeDto;
     }
      
