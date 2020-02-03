@@ -19,7 +19,10 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.acme.condominio.Condominio;
+
 import br.com.acme.unidade.entity.UnidadeEntity;
+
+import br.com.acme.unidade.Unidade;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -49,7 +52,11 @@ public class Multa implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_unidade")
+<<<<<<< HEAD
 	private UnidadeEntity unidadeMulta;
+=======
+	private Unidade unidadeMulta;
+>>>>>>> be8ffa345fc337e83019c91a4d25632d499474b3
 	
 	@ManyToOne
 	@JoinColumn(name = "id_condominio")
