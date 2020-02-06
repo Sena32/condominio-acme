@@ -31,8 +31,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Builder
-@AllArgsConstructor
 @EqualsAndHashCode
 @Table(name = "tb_responsavel")
 public class UnidadeEntity implements Serializable {
@@ -49,8 +47,14 @@ public class UnidadeEntity implements Serializable {
 	private String numeroUnidade;
 	
 	private String blocoUnidade;
+
+	public UnidadeEntity() {
+		super();
+	}
 	
 	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "unidadeMulta")
 	//private Set<Multa> multasUnidade;
+	
+	
 	
 }
