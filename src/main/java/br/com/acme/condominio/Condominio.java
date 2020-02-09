@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.acme.aviso.Aviso;
-import br.com.acme.multas.Multa;
+import br.com.acme.multas.entity.Multa;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

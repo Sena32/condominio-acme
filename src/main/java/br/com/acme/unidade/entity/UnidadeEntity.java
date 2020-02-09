@@ -16,12 +16,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.com.acme.multas.Multa;
+import br.com.acme.multas.dto.MultaDTO;
+import br.com.acme.multas.entity.Multa;
 import br.com.acme.responsavel.Responsavel;
+import br.com.acme.unidade.entity.dto.UnidadeDTO;
+import br.com.acme.unidade.entity.dto.UnidadeDTO.UnidadeDTOBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -31,8 +35,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
-@Table(name = "tb_responsavel")
+@Table(name = "tb_unidade")
 public class UnidadeEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -40,20 +47,17 @@ public class UnidadeEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	//@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	//@JoinColumn(name = "id_responsavel")
-	//private Responsavel responsavelUnidade;
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "id_responsavel")
+	private Responsavel responsavelUnidade;
 	
 	private String numeroUnidade;
 	
 	private String blocoUnidade;
 
-	public UnidadeEntity() {
-		super();
-	}
 	
-	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "unidadeMulta")
-	//private Set<Multa> multasUnidade;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "unidadeMulta")
+	private Set<Multa> multasUnidade;
 	
 	
 	

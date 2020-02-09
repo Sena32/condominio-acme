@@ -16,9 +16,11 @@ import javax.persistence.Table;
 
 import br.com.acme.reclamacao.Reclamacao;
 import br.com.acme.reserva.Reserva;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -29,6 +31,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @Table(name = "tb_responsavel")
 public class Responsavel implements Serializable {

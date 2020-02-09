@@ -23,5 +23,14 @@ public class UnidadeService {
 	public List<UnidadeEntity> listSemMultas(){
 		return this.repository.findOnlyMultas();
 	}
+	
+	public UnidadeEntity findById(Long id) {
+		return repository.findUnidadeById(id);
+	}
+
+	public List<UnidadeEntity> listComMultas() {
+		// TODO Auto-generated method stub
+		return this.repository.findWithMultas();
+	}
 
 }

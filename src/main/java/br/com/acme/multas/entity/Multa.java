@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.acme.multas;
+package br.com.acme.multas.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -21,10 +21,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import br.com.acme.condominio.Condominio;
 
 import br.com.acme.unidade.entity.UnidadeEntity;
-
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -35,6 +36,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "tb_multas")
 public class Multa implements Serializable {

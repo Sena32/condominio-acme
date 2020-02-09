@@ -28,11 +28,19 @@ public class UnidadeResource {
 	@Autowired
 	private UnidadeDTOAssembler assembler;
 
-	@GetMapping("/api/unidades")
+	@GetMapping("/api/unidades/sem-multas")
 	public ResponseEntity<CollectionModel<UnidadeDTO>> getAllUnidades() {
 		List<UnidadeEntity> unidadeList = this.service.listSemMultas();
 		return new ResponseEntity<>(assembler.toCollectionModel(unidadeList), HttpStatus.OK);
 	}
+	
+
+	@GetMapping("/api/unidades/multadas")
+	public ResponseEntity<CollectionModel<UnidadeDTO>> getAllmultadas() {
+		List<UnidadeEntity> unidadeList = this.service.listComMultas();
+		return new ResponseEntity<>(assembler.toCollectionModel(unidadeList), HttpStatus.OK);
+	}
+
 
 	@GetMapping("/api/unidades/{id}")
 	public ResponseEntity<UnidadeDTO> getUnidadeById(@PathVariable("id") Long id) {
